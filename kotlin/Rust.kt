@@ -2,4 +2,5 @@
 @file:JvmName("RustLibrary")
 
 /** Sorts a string's letters in lexicographic order. */
-external fun sortLetters(str: String): String;
+//external fun sortLetters(str: String): String;
+external fun rustyAdd(a: Int, b: Int): Int;

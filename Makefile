@@ -8,9 +8,9 @@ lib_name := librust_jni.so
 jar_name := KotlinRust.jar
 
 # The path of the shared library
-lib_path := target/$(config)/$(lib_name)
+lib_path := target/x86_64-unknown-linux-gnu/$(config)/$(lib_name)
 # The path of the JAR file.
-jar_path := $(jar_name)
+jar_path := target/kotlin/$(jar_name)
 
 # Extract the directory with the native library.
 lib_dir := $(dir $(lib_path))

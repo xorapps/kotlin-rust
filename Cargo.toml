@@ -1,7 +1,10 @@
 [package]
-name = "kotlin-example"
+name = "rust-kotlin"
 version = "0.1.0"
-authors = ["Gabriel Majeri <gabriel.majeri6@gmail.com>"]
+authors = ["XOR·APPS <developers@xorapps.network>"]
+license = "CC0-1.0"
+description = "How to compile Rust shared library and execute with Kotlin"
+publish = false
 
 [lib]
 name = "rust_kotlin"

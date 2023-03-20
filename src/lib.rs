@@ -1,7 +1,31 @@
 extern crate jni;
-use jni::JNIEnv;
+
 use jni::objects::{JClass, JString};
-use jni::sys::jstring;
+use jni::sys::{jint, jstring};
+use jni::JNIEnv;
+
+fn add(a: u32, b: u32) -> u32 {
+    a + b
+}
+
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "system" fn Java_RustLibrary_rustyAdd(
+    // Java environment.
+    _env: JNIEnv,
+    // Static class which owns this method.
+    _class: JClass,
+    a: jint,
+    b: jint,
+) -> i32 {
+    if a < 0 || b < 0 {
+        panic!(); // Handle this differently in production
+    }
+
+    println!("INTS ARE: {}, {}", &a, &b);
+
+    add(a as u32, b as u32) as i32
+}
 
 fn sort_string(string: &str) -> String {
     let mut chars: Vec<_> = string.chars().collect();

@@ -1,43 +1,11 @@
-import kotlin.system.measureNanoTime
-
-fun sortString(input: String): String = input.chars().sorted().toString()
-
-fun main(args: Array<String>) {
+fun main() {
     System.loadLibrary("rust_kotlin")
 
-    val str = "Kotlin <3 Rust"
+    val a: Int = 4;
+    val b: Int = 2;
 
-    // How many times to run the micro-benchmark
-    val times = 2048
+    val foo = rustyAdd(a, b);
 
-    var rustTotal = 0L
-    var kotlinTotal = 0L
+    println("The Rusty Value of Foo is $foo");
 
-    var count = 0
-
-    for (i in 0..times) {
-        var sortedRust: String = ""
-        var sortedKotlin: String = ""
-
-        val rustTime = measureNanoTime {
-            sortedRust = sortLetters(str)
-        }
-
-        val kotlinTime = measureNanoTime {
-            sortedKotlin = sortString(str)
-        }
-
-        assert(sortedRust == sortedKotlin)
-
-        rustTotal += rustTime
-        kotlinTotal += kotlinTime
-
-        count += 1
-    }
-
-    val rustAvg = rustTotal / count
-    val kotlinAvg = kotlinTotal / count
-
-    println("Rust time: ${rustAvg} ns")
-    println("Kotlin time: ${kotlinAvg} ns")
 }
