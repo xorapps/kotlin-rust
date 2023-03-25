@@ -5,6 +5,7 @@ authors = ["XOR·APPS <developers@xorapps.network>"]
 license = "CC0-1.0"
 description = "How to compile Rust shared library and execute with Kotlin"
 publish = false
+edition = "2021"
 
 [lib]
 name = "rust_kotlin"
